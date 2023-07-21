@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useState } from "react";
+import { Typography, Box } from "@mui/material";
+import { Input } from "./components/Input";
+import { Todo } from "./Todo";
+import { RenderTodos } from "./components/RenderTodos";
 
-function App() {
+import "./App.css";
+
+const App: React.FC = () => {
+  let [text, setText] = useState<string>("");
+
+  let [Todos, setTodoss] = useState<Todo[]>([]);
+
+  let handleAdd = (nameTodo: string) => {
+    if (nameTodo) {
+      let item: Todo = {
+        id: Date.now(),
+        nome: nameTodo,
+        isCompleted: false,
+      };
+
+      setTodoss((prev) => [...prev, item]);
+      setText("");
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box className="App">
+      <span className="heading">
+        <Typography variant={"h3"}>Tasckfy</Typography>
+      </span>
+
+      <Input todo={text} setTodos={setText} handleAddTodo={handleAdd}></Input>
+
+      <RenderTodos Todos={Todos} setTodos={setTodoss} />
+    </Box>
   );
-}
+};
 
 export default App;
