@@ -6,14 +6,14 @@ import MyBackgroundImage from "../Assets/bg.jpg";
 import { Todo } from "../Todo";
 import React, { useState } from "react";
 const style = {
-  padding: "1rem",
+  padding: "0.5rem",
   color: "#000000",
   maxWidth: "20rem",
   border: "#5B6DCD solid 0.5rem",
   borderRadius: "1rem",
-  backgroundImage: `url(${MyBackgroundImage})`,
-  backgroundSize: "cover",
-  backgroundRepeat: "no-repeat",
+  // backgroundImage: `url(${MyBackgroundImage})`,
+  // backgroundSize: "cover",
+  // backgroundRepeat: "no-repeat",
 };
 var color:string;
 
@@ -72,16 +72,16 @@ export const CardTodo = ({
   const [newValue,setNewValue]=useState<string>(nomeTodo)
   return (
     <Box style={style} textAlign={"center"}>
-      <Typography style={{ wordWrap: "break-word" }} variant="h6">
+      <Typography style={{ wordWrap: "break-word" ,color:color}} variant="h6">
         {isEdit? <TextField onChange={(e)=>{setNewValue(e.target.value)}}/>:nomeTodo}
       </Typography>
-      <Typography variant="body1" style={{color:color}}>
+      <Typography variant="overline" style={{color:color}}>
         {isCompleted ? (color = 'green',"Complete") : (color = 'red',"Not Done")}
       </Typography>
-      <Stack direction={"row"} justifyContent={"center"}>
+      <Stack direction={{xs:'column',sm:"row"}} justifyContent={"center"}>
         <Button>
           <ClearIcon
-            color="action"
+             color="primary"
             onClick={() => {
               handleDelete(idTodo, Todos, setTodos);
             }}
@@ -89,7 +89,7 @@ export const CardTodo = ({
         </Button>
         <Button>
           <BorderColorIcon
-            color="action"
+             color="primary"
             onClick={() => {
               editTodo(idTodo, Todos, setTodos,isEdit,setIsEdit,newValue,setNewValue,isCompleted);
             }}
@@ -97,7 +97,7 @@ export const CardTodo = ({
         </Button>
         <Button>
           <CheckCircleOutlineIcon
-            color="action"
+            color="primary"
             onClick={() => {
               toggleTodo(idTodo, Todos, setTodos);
             }}

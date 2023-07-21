@@ -30,7 +30,7 @@ export const RenderTodos = ({ Todos, setTodos }: Props) => {
       >
         <Divider />
         <Grid rowGap={2} alignItems={"center"} container direction={"column"}>
-          <Typography variant="h5"> To Do Task</Typography>
+          <Typography variant="subtitle1"> To Do Task</Typography>
           <Button
             onClick={() => {
               setTodos(Todos.map((e) => 
@@ -56,7 +56,7 @@ export const RenderTodos = ({ Todos, setTodos }: Props) => {
         </Grid>
 
         <Grid rowGap={2} alignItems={"center"} container direction={"column"}>
-          <Typography variant="h5"> Completed Task </Typography>
+          <Typography variant="subtitle1"> Completed Task </Typography>
           <Button
             onClick={() => {
               setTodos(Todos.filter((e) => e.isCompleted === false));
@@ -80,7 +80,7 @@ export const RenderTodos = ({ Todos, setTodos }: Props) => {
         </Grid>
 
         <Grid rowGap={2} alignItems={"center"} container direction={"column"}>
-          <Typography variant="h5"> Note </Typography>
+          <Typography variant="subtitle1"> Note </Typography>
 
           <Button
             onClick={() => {

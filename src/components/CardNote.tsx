@@ -15,9 +15,9 @@ const style = {
   maxWidth: "20rem",
   borderRadius: "1rem",
   padding: "1rem",
-  backgroundImage: `url(${MyBackgroundImage})`,
-  backgroundSize: "cover",
-  backgroundRepeat: "no-repeat",
+  // backgroundImage: `url(${MyBackgroundImage})`,
+  // backgroundSize: "cover",
+  // backgroundRepeat: "no-repeat",
 };
 
 export const CardNote = ({ note, date, Notes, setNotes }: Props) => {
@@ -32,11 +32,11 @@ export const CardNote = ({ note, date, Notes, setNotes }: Props) => {
         {<HighlightOffIcon />}
       </Button>
 
-      <Typography style={{ wordWrap: "break-word" }} variant="h6">
+      <Typography style={{ wordWrap: "break-word" }} variant="body1">
         {note}
       </Typography>
 
-      <Typography textAlign={"right"} variant="body2">
+      <Typography textAlign={"right"} variant="caption">
         {date}
       </Typography>
     </Box>

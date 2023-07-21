@@ -1,4 +1,11 @@
-import { Grid, TextField, Button } from "@mui/material";
+import {
+  Grid,
+  TextField,
+  Box,
+  Button,
+  IconButton,
+  InputAdornment,
+} from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useRef } from "react";
 interface Props {
@@ -23,20 +30,20 @@ export const Input: React.FC<Props> = ({
         inputRef.current?.blur();
       }}
     >
-      <Grid
-        direction={"row"}
-        spacing={4}
-        alignItems={"center"}
-        justifyContent={"center"}
-        container
-      >
+      <Grid container style={{ margin: " auto 0" }} justifyContent={"center"}>
         <Grid item>
+          {" "}
           <TextField
             id="TextFieldCss"
             InputProps={{
               style: {
                 borderRadius: "30px",
               },
+              endAdornment: (
+                <IconButton type="submit" edge="end" color="primary">
+                  <AddIcon />
+                </IconButton>
+              ),
             }}
             ref={inputRef}
             value={todo}
@@ -46,11 +53,6 @@ export const Input: React.FC<Props> = ({
             }}
             placeholder="Type Your Task Here"
           ></TextField>
-        </Grid>
-        <Grid item>
-          <Button variant="outlined" type="submit">
-            <AddIcon />
-          </Button>
         </Grid>
       </Grid>
     </form>
